@@ -623,7 +623,7 @@
           throw new Violation( this, value, { value: Validator.errorCode.must_be_a_number } );
         
         if ( this.reference.value >= value )
-          throw new Violation( this, value);
+          throw new Violation( this, value );
         
         return true;
       };

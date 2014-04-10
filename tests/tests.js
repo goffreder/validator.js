@@ -420,7 +420,7 @@ var Suite = function ( Validator, expect ) {
       } );
 
       it( 'Eql w/ function', function () {
-        assert = new Assert().Eql( function ( value ) { return { foo: 'foo', bar: 'bar' } } );
+        assert = new Assert().Eql( function ( value ) { return { foo: 'foo', bar: 'bar' }; } );
 
         expect( validate( { foo: null, bar: null }, assert ) ).not.to.be( true );
         expect( validate( { foo: 'foo', bar: 'bar' }, assert ) ).to.be( true );
@@ -486,10 +486,10 @@ var Suite = function ( Validator, expect ) {
       } );
 
       it( 'GreaterThanReference', function () {
-        assert = new Assert().GreaterThanReference( 5 );
+        assert = new Assert().GreaterThanReference( { name : 'foo', value : 5 } );
         expect( validate( 'foo', assert) ).not.to.be( true );
         expect( validate( 3, assert ) ).not.to.be( true );
-        expect( validate( 5, assert ).show() ).to.eql( { assert: 'GreaterThanReference', value: 5, violation: { threshold: 5 } } );
+        expect( validate( 5, assert ).show() ).to.eql( { assert: 'GreaterThanReference', value: 5 } );
         expect( validate( 7, assert ) ).to.be( true );
       } );
 
@@ -511,10 +511,10 @@ var Suite = function ( Validator, expect ) {
       } );
 
       it( 'LessThanReference', function () {
-        assert = new Assert().LessThanReference( 5 );
+        assert = new Assert().LessThanReference( { name : 'foo', value : 5 } );
         expect( validate( 'foo', assert) ).not.to.be( true );
         expect( validate( 3, assert ) ).to.be( true );
-        expect( validate( 5, assert ).show() ).to.eql( { assert: 'LessThanReference', value: 5, violation: { threshold: 5 } } );
+        expect( validate( 5, assert ).show() ).to.eql( { assert: 'LessThanReference', value: 5 } );
         expect( validate( 7, assert ) ).not.to.be( true );
       } );
     } );
