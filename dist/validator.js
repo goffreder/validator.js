@@ -2,7 +2,7 @@
 * validator.js
 * Guillaume Potier - <guillaume@wisembly.com>
 * Emanuele Biancardi - <goffreder@gmail.com>
-* Version 0.5.8 - built Thu Apr 10 2014 14:44:33
+* Version 0.5.8 - built Thu Apr 10 2014 15:40:23
 * MIT Licensed
 *
 */
@@ -623,7 +623,7 @@
           throw new Violation( this, value, { value: Validator.errorCode.must_be_a_number } );
         
         if ( this.reference.value >= value )
-          throw new Violation( this, value);
+          throw new Violation( this, value );
         
         return true;
       };
