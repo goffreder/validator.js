@@ -15,6 +15,11 @@
     "email": "guillaume@wisembly.com",
     "url": "http://guillaumepotier.com/"
   },
+  "contributor": {
+    "name": "Emanuele Biancardi",
+    "email": "goffreder@gmail.com",
+    "url": "http://arresteddeveloper.no-ip.biz/"
+  },
   "main": ["./dist/validator", "./dist/validator.min"],
   "devDependencies": {
     "mocha": "*",

@@ -14,7 +14,11 @@
             "name": "Guillaume Potier",
             "email" : "guillaume@wisembly.com",
             "url" : "http://guillaumepotier.com/"
-        }
+        },{
+		    "name": "Emanuele Biancardi",
+		    "email": "goffreder@gmail.com",
+		    "url": "http://arresteddeveloper.no-ip.biz/"
+		  }
     ],
     "require": {
         "robloach/component-installer": "*"

@@ -7,11 +7,6 @@
     "email": "guillaume@wisembly.com",
     "url": "http://guillaumepotier.com/"
   },
-  "contributor": {
-    "name": "Emanuele Biancardi",
-    "email": "goffreder@gmail.com",
-    "url": "http://arresteddeveloper.no-ip.biz/"
-  },
   "main": [
     "./dist/validator",
     "./dist/validator.min"
@@ -32,5 +27,16 @@
     ".gitignore",
     ".travis.yml",
     "Gruntfile.js"
-  ]
+  ],
+  "homepage": "https://github.com/guillaumepotier/validator.js",
+  "_release": "0.5.8",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.5.8",
+    "commit": "6a11f621f4998e1848541c2eb9e0a0a7811744b7"
+  },
+  "_source": "git://github.com/guillaumepotier/validator.js.git",
+  "_target": "~0.5.8",
+  "_originalSource": "validator.js",
+  "_direct": true
 }

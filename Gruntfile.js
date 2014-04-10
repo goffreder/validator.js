@@ -23,6 +23,10 @@ module.exports = function(grunt) {
                         replacement: '<%= pkg.author.name %> - <<%= pkg.author.email %>>'
                     },
                     {
+                        match: 'contributor',
+                        replacement: '<%= pkg.contributor.name %> - <<%= pkg.contributor.email %>>'
+                    },
+                    {
                         match: 'version',
                         replacement: '<%= pkg.version %>'
                     },
@@ -59,7 +63,7 @@ module.exports = function(grunt) {
         sync: {
             all: {
                 options: {
-                    sync: ['author', 'name', 'version', 'license', 'main', 'keywords'],
+                    sync: ['author', 'contributor', 'name', 'version', 'license', 'main', 'keywords'],
                     from: 'package.json',
                     to: 'bower.json'
                 }

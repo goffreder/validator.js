@@ -1,7 +1,8 @@
 /*!
 * validator.js
 * Guillaume Potier - <guillaume@wisembly.com>
-* Version 0.5.8 - built Sun Mar 16 2014 17:18:21
+* Emanuele Biancardi - <goffreder@gmail.com>
+* Version 0.5.8 - built Thu Apr 10 2014 14:44:33
 * MIT Licensed
 *
 */
@@ -17,8 +18,6 @@
     this.__version__ = '0.5.8';
     this.options = options || {};
     this.bindingKey = this.options.bindingKey || '_validatorjsConstraint';
-
-    return this;
   };
 
   Validator.prototype = {
@@ -129,8 +128,6 @@
         throw new Error( 'Should give a valid mapping object to Constraint', err, data );
       }
     }
-
-    return this;
   };
 
   Constraint.prototype = {
@@ -305,8 +302,6 @@
 
     if ( 'undefined' !== typeof group )
       this.addGroup( group );
-
-    return this;
   };
 
   Assert.prototype = {
@@ -612,6 +607,29 @@
 
       return this;
     },
+    
+    GreaterThanReference: function ( reference ) {
+      this.__class__ = 'GreaterThanReference';
+      
+      if ( 'undefined' === typeof reference )
+        throw new Error( 'GreaterThanReference must be instanciated with a value or a function' );
+      
+      this.reference = reference;
+      
+      this.validate = function ( value ) {
+        var reference = 'function' === typeof this.reference ? this.reference( value ) : this.reference;
+        
+        if ( '' === value || isNaN( Number( value ) ) )
+          throw new Violation( this, value, { value: Validator.errorCode.must_be_a_number } );
+        
+        if ( this.reference.value >= value )
+          throw new Violation( this, value);
+        
+        return true;
+      };
+      
+      return this;
+    },
 
     InstanceOf: function ( classRef ) {
       this.__class__ = 'InstanceOf';
@@ -716,6 +734,29 @@
         return true;
       };
 
+      return this;
+    },
+    
+   	LessThanReference: function ( reference ) {
+      this.__class__ = 'LessThanReference';
+      
+      if ( 'undefined' === typeof reference )
+        throw new Error( 'LessThanReference must be instanciated with a value or a function' );
+      
+      this.reference = reference;
+      
+      this.validate = function ( value ) {
+        var reference = 'function' === typeof this.reference ? this.reference( value ) : this.reference;
+        
+        if ( '' === value || isNaN( Number( value ) ) )
+          throw new Violation( this, value, { value: Validator.errorCode.must_be_a_number } );
+        
+        if ( this.reference.value <= value )
+          throw new Violation( this, value );
+        
+        return true;
+      };
+      
       return this;
     },
 
